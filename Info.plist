@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>CFBundleIdentifier</key>
+    <string>forth.docset</string>
+
+    <key>CFBundleName</key>
+    <string>Forth</string>
+
+    <key>DocSetPlatformFamily</key>
+    <string>forth</string>
+
+    <key>isDashDocset</key>
+    <true/>
+
+    <key>DashDocSetFamily</key>
+    <string>dashtoc</string>
+
+    <key>dashIndexFilePath</key>
+    <string>www.forth200x.org/documents/html/index.html</string>
+
+    <key>isJavaScriptEnabled</key>
+    <false/>
+
+    <key>DashDocSetFallbackURL</key>
+    <string>http://www.forth200x.org/documents/html/</string>
+  </dict>
+</plist>
