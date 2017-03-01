@@ -47,15 +47,13 @@ function sql(name, type, path) {
            escape_sql(name), escape_sql(type), escape_sql(path))
 }
 
-function escape_sql(s)
-{
+function escape_sql(s) {
     gsub(/'/, "''", s)
 
     return s
 }
 
-function unescape_xml(s)
-{
+function unescape_xml(s) {
     gsub(/&gt;/, ">", s)
     gsub(/&lt;/, "<", s)
     gsub(/&quot;/, "\"", s)
