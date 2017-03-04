@@ -8,19 +8,20 @@ HTML_DIR=$(RESOURCES_DIR)/Documents
 all: $(HTML_DIR)/www.forth200x.org $(ICON_DIR)/icon.png $(CONTENTS_DIR)/Info.plist \
      $(RESOURCES_DIR)/docSet.dsidx
 
-$(HTML_DIR)/www.forth200x.org: $(HTML_DIR)
-	cd $(HTML_DIR) && wget -nv -r $(SOURCE_URL)
+$(HTML_DIR)/www.forth200x.org:
+	[ -d `dirname $@` ] || mkdir -p $@
+	cd `dirname $@` && wget -nv -r $(SOURCE_URL)
 
-$(HTML_DIR):
-	mkdir -p $@
-
-$(CONTENTS_DIR)/Info.plist: $(HTML_DIR)
-	cp Info.plist $@
+$(CONTENTS_DIR)/Info.plist: Info.plist
+	[ -d `dirname $@` ] || mkdir -p `dirname $@`
+	cp $< $@
 
 $(ICON_DIR)/icon.png: icon.png
-	cp icon.png $@
+	[ -d `dirname $@` ] || mkdir -p `dirname $@`
+	cp $< $@
 
 $(RESOURCES_DIR)/docSet.dsidx: schema.sql mkidx.awk
+	[ -d `dirname $@` ] || mkdir -p `dirname $@`
 	sqlite3 $@ < schema.sql
 	find $(HTML_DIR) -type f -name '*.html' -exec ./mkidx.awk {} \+ | sqlite3 $@
 
