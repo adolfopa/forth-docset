@@ -20,10 +20,10 @@ $(ICON_DIR)/icon.png: icon.png
 	[ -d `dirname $@` ] || mkdir -p `dirname $@`
 	cp $< $@
 
-$(RESOURCES_DIR)/docSet.dsidx: schema.sql mkidx.awk
+$(RESOURCES_DIR)/docSet.dsidx: schema.sql mkidx.awk $(HTML_DIR)/www.forth200x.org
 	[ -d `dirname $@` ] || mkdir -p `dirname $@`
-	sqlite3 $@ < schema.sql
-	find $(HTML_DIR) -type f -name '*.html' -exec ./mkidx.awk {} \+ | sqlite3 $@
+	find $(HTML_DIR) -type f -name '*.html' -exec awk -f mkidx.awk {} \+ | \
+	    cat schema.sql - | sqlite3 $@
 
 dist: all
 	tar -czf Forth.tgz -C build forth.docset
