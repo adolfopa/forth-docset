@@ -1,4 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/release/adolfopa/forth-docset.svg)](https://github.com/adolfopa/forth-docset/releases/latest)
 
 # Forth Standard (2012) DocSet
 
